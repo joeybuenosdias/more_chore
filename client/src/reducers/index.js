@@ -3,9 +3,11 @@ import { combineReducers } from 'redux';
 
 //FILES
 import users from './users';
+import user from './user';
 
 const rootReducer = combineReducers({
-  users
+  users,
+  user
 });
 
 export default rootReducer;
