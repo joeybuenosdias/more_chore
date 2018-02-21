@@ -6,3 +6,7 @@ export const getUsers = () => {
       .then(res => dispatch({ type: 'USERS', users: res.data }))
   }
 }
+
+export const showUser = (id) => {
+  return {type: 'SHOW_USER', id}
+}
