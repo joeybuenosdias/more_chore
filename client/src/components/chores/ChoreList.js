@@ -9,13 +9,13 @@ class ChoreList extends React.Component {
   }
 
   render(){
-
     return (
       <ul>
         {this.props.chores.map( (chore) => {
           return (
             <li key={chore._id}>
               <div>
+                <span>{chore._id}</span>
                 <h1>{chore.title}</h1>
                 <p>{chore.description}</p>
               </div>
