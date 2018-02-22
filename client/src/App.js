@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Landing from './components/Landing';
 import UserList from './components/UserList';
 import UserShow from './components/UserShow';
+import Chores from './components/chores/Chores';
 import NoMatch from './components/NoMatch';
 
 class App extends React.Component{
@@ -18,6 +19,7 @@ class App extends React.Component{
           <Route exact path='/' component={Landing} />
           <Route exact path='/users' component={UserList} />
           <Route path='/users/:id' component={UserShow} />
+          <Route path='/chores' component={Chores} />
           <Route component={NoMatch} />
         </Switch>
       </div>
