@@ -16,7 +16,7 @@ class FetchChores extends React.Component {
   setLoaded = () => {
     setTimeout(() => {
         this.setState({ loaded: true })
-      }, 1000
+      }, 1500
     )
   }
 
@@ -25,8 +25,8 @@ class FetchChores extends React.Component {
     if(loaded){
       return(
         <div>
-          <Route path='/chores' component={Chores} />
-          <Route path='/chores/:id' component={ChoreView} />
+          <Route exact path='/chores' component={Chores} />
+          <Route exact path='/chores/:id' component={ChoreView} />
         </div>
       )
     } else {

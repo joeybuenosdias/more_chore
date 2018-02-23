@@ -33,6 +33,7 @@ class ChoreList extends React.Component {
                 <h1>{chore.title}</h1>
                 <p>{chore.description} : {chore._id}</p>
                 <div style={styles.buttonContainer}>
+                <Link to={`/chores/${chore._id}`}>View Chore</Link>
                   <button onClick={ () => this.removeChore(chore._id)}>delete</button>
                 </div>
               </div>
