@@ -12,9 +12,10 @@ const styles = {
 }
 
 class Chores extends Component{
+
   render(){
     return (
-      <div style={styles.div}>
+      <div>
         <ChoreForm />
         <ChoreList />
       </div>

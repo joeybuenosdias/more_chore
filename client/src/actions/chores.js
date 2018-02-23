@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export const getChores = () => {
+export const getChores = (cb) => {
   return (dispatch) => {
     axios.get('/api/chores')
       .then(res => dispatch({ type: 'CHORES', chores: res.data }))
+      .then( cb() )
   }
 }
 
