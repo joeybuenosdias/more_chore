@@ -18,6 +18,13 @@ export const addChore = (chore) => {
   }
 }
 
+export const updateChore = (chore) => {
+  return (dispatch) => {
+    axios.put(`/api/chores/${chore._id}`, { chore })
+    .then( res => dispatch({ type: 'UPDATE_CHORE', chore: res.data }))
+  }
+}
+
 export const deleteChore = (id) => {
   console.log(id)
   return (dispatch) => {

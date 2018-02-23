@@ -20,6 +20,21 @@ router.post('/', (req, res) => {
   });
 });
 
+router.put('/:id', (req, res) => {
+  let { title, description } = req.body;
+  Chore.findByIdAndUpdate(
+    req.params.id,
+    {$set: {title, description}},
+    {new: true},
+    (err, chore) => {
+      if(err)
+        return res.json(err)
+      return res.json(chore)
+    }
+  )
+
+})
+
 router.delete('/:id', (req, res) => {
   Chore.findByIdAndRemove(req.params.id, (err) => {
     if(err)
