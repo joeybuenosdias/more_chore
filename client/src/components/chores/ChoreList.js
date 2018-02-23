@@ -1,6 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getChores } from '../../actions/chores';
+import { getChores, deleteChore } from '../../actions/chores';
+
+const styles = {
+  choreContainer: {
+    border: '1px solid black',
+    padding: '10px'
+  },
+  buttonContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  }
+}
 
 class ChoreList extends React.Component {
 
@@ -8,16 +20,25 @@ class ChoreList extends React.Component {
     this.props.dispatch(getChores())
   }
 
+  removeChore = (id) => {
+    console.log(id)
+    this.props.dispatch(deleteChore(id))
+  }
+
   render(){
+    const {dispatch} = this.props;
     return (
       <ul>
         {this.props.chores.map( (chore) => {
           return (
             <li key={chore._id}>
-              <div>
-                <span>{chore._id}</span>
+              <div style={styles.choreContainer}>
                 <h1>{chore.title}</h1>
-                <p>{chore.description}</p>
+                <p>{chore.description} : {chore._id}</p>
+                <div style={styles.buttonContainer}>
+                  <button>view</button>
+                  <button onClick={ () => this.removeChore(chore._id)}>delete</button>
+                </div>
               </div>
             </li>
           )

@@ -20,4 +20,12 @@ router.post('/', (req, res) => {
   });
 });
 
+router.delete('/:id', (req, res) => {
+  Chore.findByIdAndRemove(req.params.id, (err) => {
+    if(err)
+      return res.json(err)
+    return res.sendStatus(204)
+  });
+});
+
 module.exports = router;

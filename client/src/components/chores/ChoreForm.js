@@ -8,9 +8,8 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    width: '50vw',
-    padding: '15px',
-    border: '1px solid black'
+    border: '1px solid black',
+    width: '25vw'
   }
 }
 

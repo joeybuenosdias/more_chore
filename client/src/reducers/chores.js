@@ -4,6 +4,8 @@ const chores = (state=[], action) => {
       return action.chores
     case 'ADD_CHORE':
       return [ action.chore, ...state ]
+    case 'DELETE_CHORE':
+      return state.filter( ch => ch._id !== action.id)
     default:
       return state
   }

@@ -4,6 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost/more_chore');
 mongoose.connection
   .once('open', () => console.log('Good to go!'))
