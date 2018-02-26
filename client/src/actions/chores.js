@@ -20,7 +20,11 @@ export const addChore = (chore) => {
 
 export const updateChore = (chore) => {
   return (dispatch) => {
-    axios.put(`/api/chores/${chore._id}`, { chore })
+    let { title, description } = chore;
+    axios.put(`/api/chores/${chore._id}`, {
+      title,
+      description
+    })
     .then( res => dispatch({ type: 'UPDATE_CHORE', chore: res.data }))
   }
 }

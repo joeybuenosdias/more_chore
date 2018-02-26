@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteChore } from '../../actions/chores';
+import { deleteChore, editChore } from '../../actions/chores';
 import { Link } from 'react-router-dom';
+
+import ChoreForm from './ChoreForm';
 
 const styles = {
   choreContainer: {
@@ -18,12 +20,11 @@ const styles = {
 class ChoreList extends React.Component {
 
   removeChore = (id) => {
-    console.log(id)
     this.props.dispatch(deleteChore(id))
   }
 
   render(){
-    const {dispatch} = this.props;
+    const { dispatch } = this.props;
     return (
       <ul>
         {this.props.chores.map( (chore) => {
@@ -33,7 +34,7 @@ class ChoreList extends React.Component {
                 <h1>{chore.title}</h1>
                 <p>{chore.description} : {chore._id}</p>
                 <div style={styles.buttonContainer}>
-                <Link to={`/chores/${chore._id}`}>View Chore</Link>
+                  <Link to={`/chores/${chore._id}`}>View Chore</Link>
                   <button onClick={ () => this.removeChore(chore._id)}>delete</button>
                 </div>
               </div>
