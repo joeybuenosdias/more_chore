@@ -1,6 +1,7 @@
 //LIBRARIES
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 
 //FILES
 import Navbar from './components/Navbar';
@@ -12,12 +13,16 @@ class App extends React.Component{
   render(){
     return (
       <div>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Landing} />
-          <Route path='/chores' component={FetchChores} />
-          <Route component={NoMatch} />
-        </Switch>
+        <Container
+          fluid
+        >
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Landing} />
+            <Route path='/chores' component={FetchChores} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Container>
       </div>
     )
   }

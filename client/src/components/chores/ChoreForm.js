@@ -1,17 +1,10 @@
+//LIBRARIES
 import React from 'react';
 import { connect } from 'react-redux';
-import { addChore } from '../../actions/chores';
+import { Form, Input, TextArea, Button } from 'semantic-ui-react';
 
-const styles = {
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    border: '1px solid black',
-    width: '25vw'
-  }
-}
+//FILES
+import { addChore } from '../../actions/chores';
 
 class ChoreForm extends React.Component {
 
@@ -30,26 +23,30 @@ class ChoreForm extends React.Component {
 
   render(){
     return(
-      <form
-        style={styles.form}
+      <Form
         onSubmit={this.handleSubmit}
       >
-        <input
-          name='title'
-          value={this.state.title}
-          onChange={this.handleChange}
-          placeholder='Enter Title of Chore Here'
-        />
-        <textarea
-          name='description'
-          value={this.state.description}
-          onChange={this.handleChange}
-          placeholder='Enter Description of Chore Here'
-        ></textarea>
-        <button
-          onClick={this.handleSubmit}
-        >SUBMIT!</button>
-      </form>
+            <Input
+              fluid
+              name='title'
+              value={this.state.title}
+              onChange={this.handleChange}
+              placeholder='Enter Title of Chore Here'
+            />
+          <TextArea
+            fluid
+            name='description'
+            value={this.state.description}
+            onChange={this.handleChange}
+            placeholder='Enter Description of Chore Here'
+            rows={10}
+          ></TextArea>
+          <Button
+            fluid
+            color='purple'
+            onClick={this.handleSubmit}
+          >SUBMIT!</Button>
+      </Form>
     )
   }
 }

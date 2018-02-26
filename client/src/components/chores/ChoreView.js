@@ -5,7 +5,7 @@ import { updateChore } from '../../actions/chores';
 
 class ChoreView extends React.Component {
 
-  state = { edit: false, task: {...this.props.chore} }
+  state = { edit: true, task: {...this.props.chore} }
 
   toggleEdit = () => {
     this.setState({ edit: !this.state.edit })
@@ -43,6 +43,7 @@ class ChoreView extends React.Component {
               name='description'
             ></textarea>
             <button>Save</button>
+            <button onClick={this.toggleEdit}>Cancel</button>
           </form>
         </div>
       )

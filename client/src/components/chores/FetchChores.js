@@ -1,6 +1,10 @@
+//LIBRARIES
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
+import { Container, Dimmer, Loader } from 'semantic-ui-react';
+
+//FILES
 import Chores from './Chores';
 import ChoreView from './ChoreView';
 import { getChores } from '../../actions/chores';
@@ -31,7 +35,11 @@ class FetchChores extends React.Component {
       )
     } else {
       return (
-        <h1>...Loading</h1>
+        <Container fluid>
+          <Dimmer active>
+            <Loader>Fetching Chores</Loader>
+          </Dimmer>
+        </Container>
       )
     }
   }

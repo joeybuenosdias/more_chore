@@ -1,24 +1,27 @@
+//LIBRARIES
 import React, { Component } from 'react';
+import { Container, Grid } from 'semantic-ui-react';
 
+//FILES
 import ChoreForm from './ChoreForm';
 import ChoreList from './ChoreList';
 
-const styles = {
-  div: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    padding: '25px'
-  }
-}
-
-class Chores extends Component{
+class Chores extends Component {
 
   render(){
     return (
-      <div>
-        <ChoreForm />
-        <ChoreList />
-      </div>
+      <Container>
+        <Grid>
+          <Grid.Row columns={2} divided>
+            <Grid.Column>
+              <ChoreForm />
+            </Grid.Column>
+            <Grid.Column>
+              <ChoreList />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
     )
   }
 }
