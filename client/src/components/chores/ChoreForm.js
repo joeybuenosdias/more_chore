@@ -1,7 +1,7 @@
 //LIBRARIES
 import React from 'react';
 import { connect } from 'react-redux';
-import { Form, Input, TextArea, Button } from 'semantic-ui-react';
+import { Form, Input, TextArea, Button, Header } from 'semantic-ui-react';
 
 //FILES
 import { addChore } from '../../actions/chores';
@@ -26,6 +26,12 @@ class ChoreForm extends React.Component {
       <Form
         onSubmit={this.handleSubmit}
       >
+        <Header
+          textAlign='center'
+          color='grey' as='h1'
+        >
+          Add Chores Here
+        </Header>
         <Input
           fluid
           name='title'
@@ -45,7 +51,8 @@ class ChoreForm extends React.Component {
           fluid
           color='purple'
           onClick={this.handleSubmit}
-        >SUBMIT!
+        >
+          SUBMIT!
         </Button>
       </Form>
     )

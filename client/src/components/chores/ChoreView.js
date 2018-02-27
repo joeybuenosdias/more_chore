@@ -1,6 +1,10 @@
+//LIBRARIES
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Segment, Header, Form, Input, TextArea, Button } from 'semantic-ui-react';
+
+//FILES
 import { updateChore } from '../../actions/chores';
 
 class ChoreView extends React.Component {
@@ -26,26 +30,31 @@ class ChoreView extends React.Component {
 
     if(this.state.edit){
       return(
-        <div>
-          <form
+        <Segment textAlign='center' padded raised>
+          <Form
             onSubmit={this.handleSubmit}
           >
-            <input
+            <Header>Edit Chore</Header>
+            <Input
               onChange={this.handleChange}
               value={this.state.task.title}
               placeholder={this.props.chore.title}
               name='title'
+              fluid
             />
-            <textarea
+            <TextArea
               onChange={this.handleChange}
               value={this.state.task.description}
               placeholder={this.props.chore.description}
               name='description'
-            ></textarea>
-            <button>Save</button>
-            <button onClick={this.toggleEdit}>Cancel</button>
-          </form>
-        </div>
+              rows={8}
+            ></TextArea>
+            <Button.Group fluid>
+              <Button basic color='blue'>Save</Button>
+              <Button basic color='red' onClick={this.toggleEdit}>Cancel</Button>
+            </Button.Group>
+          </Form>
+        </Segment>
       )
     } else {
       return (

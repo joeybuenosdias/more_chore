@@ -1,19 +1,11 @@
+//LIBRARIES
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteChore } from '../../actions/chores';
 import { Link } from 'react-router-dom';
+import { List, Header, Segment, Button, Icon } from 'semantic-ui-react';
 
-const styles = {
-  choreContainer: {
-    border: '1px solid black',
-    padding: '10px'
-  },
-  buttonContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-around'
-  }
-}
+//FILES
+import { deleteChore } from '../../actions/chores';
 
 class ChoreList extends React.Component {
 
@@ -23,22 +15,46 @@ class ChoreList extends React.Component {
 
   render(){
     return (
-      <ul>
+      <List>
+        <Header color='grey' as='h1' textAlign='center'>Chore List</Header>
         {this.props.chores.map( (chore) => {
           return (
-            <li key={chore._id}>
-              <div style={styles.choreContainer}>
-                <h1>{chore.title}</h1>
-                <p>{chore.description} : {chore._id}</p>
-                <div style={styles.buttonContainer}>
-                  <Link to={`/chores/${chore._id}`}>Edit</Link>
-                  <button onClick={ () => this.removeChore(chore._id)}>delete</button>
-                </div>
-              </div>
-            </li>
+            <List.Item
+              key={chore._id}
+              >
+              <List.Content>
+                <Segment
+                  textAlign='center'
+                >
+                  <Header as='h3'>{chore.title}</Header>
+                  <Header as='h5' color='grey'>{chore.description}</Header>
+                  <Segment
+                    raised
+                    textAlign='center'
+                  >
+                    <Button.Group fluid>
+                      <Button
+                        basic
+                        color='blue'
+                        as={Link}
+                        to={`/chores/${chore._id}`}
+                        size='large'
+                      >edit</Button>
+                      <Button
+                        basic
+                        color='red'
+                        icon={<Icon name='trash outline' color='red'/>}
+                        onClick={ () => this.removeChore(chore._id)}
+                        size='large'
+                      >delete</Button>
+                    </Button.Group>
+                  </Segment>
+                </Segment>
+              </List.Content>
+            </List.Item>
           )
         })}
-      </ul>
+      </List>
     )
   }
 }
