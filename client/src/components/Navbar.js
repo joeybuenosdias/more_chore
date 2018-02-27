@@ -1,31 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-
-const styles = {
-  navbar: {
-    width: '100vw',
-    height: '15vh',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'purple',
-    border: '3px solid grey',
-  },
-  navlink: {
-    color: 'white',
-    textDecoration: 'none',
-    margin: '50px',
-    padding: '25px',
-    border: '1px solid white',
-    borderRadius: '10px'
-  }
-}
+import { NavLink, withRouter } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
 const links = [
   {name: 'Landing', path: '/'},
-  {name: 'Users', path: '/users'},
   {name: 'Chores', path: '/chores'}
 ]
 
@@ -34,18 +13,24 @@ class Navbar extends React.Component{
   showLinks = () => {
     return links.map( link => {
       return (
-        <NavLink style={styles.navlink} to={link.path}>{link.name}</NavLink>
+        <Menu.Menu>
+          <Menu.Item as={NavLink} to={link.path}>{link.name}</Menu.Item>
+        </Menu.Menu>
       )
     })
   }
 
   render(){
     return(
-      <div style={styles.navbar}>
+      <Menu
+        inverted
+        size='huge'
+        color='purple'
+      >
         {this.showLinks()}
-      </div>
+      </Menu>
     )
   }
 }
 
-export default connect()(Navbar)
+export default withRouter(connect()(Navbar));

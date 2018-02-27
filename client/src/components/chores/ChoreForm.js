@@ -26,26 +26,27 @@ class ChoreForm extends React.Component {
       <Form
         onSubmit={this.handleSubmit}
       >
-            <Input
-              fluid
-              name='title'
-              value={this.state.title}
-              onChange={this.handleChange}
-              placeholder='Enter Title of Chore Here'
-            />
-          <TextArea
-            fluid
-            name='description'
-            value={this.state.description}
-            onChange={this.handleChange}
-            placeholder='Enter Description of Chore Here'
-            rows={10}
-          ></TextArea>
-          <Button
-            fluid
-            color='purple'
-            onClick={this.handleSubmit}
-          >SUBMIT!</Button>
+        <Input
+          fluid
+          name='title'
+          value={this.state.title}
+          onChange={this.handleChange}
+          placeholder='Enter Title of Chore Here'
+        />
+        <TextArea
+          fluid
+          name='description'
+          value={this.state.description}
+          onChange={this.handleChange}
+          placeholder='Enter Description of Chore Here'
+          rows={10}
+        ></TextArea>
+        <Button
+          fluid
+          color='purple'
+          onClick={this.handleSubmit}
+        >SUBMIT!
+        </Button>
       </Form>
     )
   }
