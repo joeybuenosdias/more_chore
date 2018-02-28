@@ -11,7 +11,7 @@ mongoose.connect(mongoUri);
 mongoose.connection
   .once('open', () => console.log('Good to go!'))
   .on('err', () => {
-    console.warn('Warning', error)
+    console.warn('Warning Server', error)
   });
 
 const app = express();
