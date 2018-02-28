@@ -37,26 +37,15 @@ class ChoreList extends React.Component {
                     raised
                     textAlign='center'
                   >
-
-                  <Popup
-                    on='click'
-                    position='bottom center'
-                    trigger={
-                    <Button
-                        basic
-                        color={ chore.completed ? 'blue' : 'red' }
-                        size='large'
-                      >delete</Button>
-                    }
-                    content={
-                      <Button
-                        color='red'
-                        onClick={() => this.toggleChore(chore)}
-                      >confirm</Button>
-                    }
-                  />
-
                     <Button.Group fluid>
+                        <Button
+                            basic
+                            color={ chore.completed ? 'green' : 'grey' }
+                            icon={chore.completed ? 'checkmark box' : 'square outline'}
+                            onClick={() => this.toggleChore(chore)}
+                            content={chore.completed ? 'completed' : 'incomplete'}
+                        />
+
                       <Button
                         basic
                         color='blue'
