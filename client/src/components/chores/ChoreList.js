@@ -5,12 +5,17 @@ import { Link } from 'react-router-dom';
 import { List, Header, Segment, Button, Icon, Popup } from 'semantic-ui-react';
 
 //FILES
-import { deleteChore } from '../../actions/chores';
+import { deleteChore, updateChore } from '../../actions/chores';
 
 class ChoreList extends React.Component {
 
   removeChore = (id) => {
     this.props.dispatch(deleteChore(id))
+  }
+
+  toggleChore = (chore) => {
+    let updatedChore = { ...chore, completed: !chore.completed }
+    this.props.dispatch(updateChore(updatedChore))
   }
 
   render(){
@@ -32,6 +37,25 @@ class ChoreList extends React.Component {
                     raised
                     textAlign='center'
                   >
+
+                  <Popup
+                    on='click'
+                    position='bottom center'
+                    trigger={
+                    <Button
+                        basic
+                        color={ chore.completed ? 'blue' : 'red' }
+                        size='large'
+                      >delete</Button>
+                    }
+                    content={
+                      <Button
+                        color='red'
+                        onClick={() => this.toggleChore(chore)}
+                      >confirm</Button>
+                    }
+                  />
+
                     <Button.Group fluid>
                       <Button
                         basic
@@ -46,11 +70,11 @@ class ChoreList extends React.Component {
                         position='bottom center'
                         trigger={
                         <Button
-                          basic
-                          color='red'
-                          size='large'
-                        >delete</Button>
-                      }
+                            basic
+                            color='red'
+                            size='large'
+                          >delete</Button>
+                        }
                         content={
                           <Button
                             color='red'

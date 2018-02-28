@@ -21,10 +21,10 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  let { title, description } = req.body;
+  let { title, description, completed } = req.body;
   Chore.findByIdAndUpdate(
     req.params.id,
-    {$set: {title, description}},
+    {$set: { title, description, completed }},
     {new: true},
     (err, chore) => {
       if(err)
