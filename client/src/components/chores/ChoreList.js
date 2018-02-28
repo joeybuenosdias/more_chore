@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { List, Header, Segment, Button, Icon } from 'semantic-ui-react';
+import { List, Header, Segment, Button, Icon, Popup } from 'semantic-ui-react';
 
 //FILES
 import { deleteChore } from '../../actions/chores';
@@ -40,13 +40,24 @@ class ChoreList extends React.Component {
                         to={`/chores/${chore._id}`}
                         size='large'
                       >edit</Button>
-                      <Button
-                        basic
-                        color='red'
-                        icon={<Icon name='trash outline' color='red'/>}
-                        onClick={ () => this.removeChore(chore._id)}
-                        size='large'
-                      >delete</Button>
+
+                      <Popup
+                        on='click'
+                        position='bottom center'
+                        trigger={
+                        <Button
+                          basic
+                          color='red'
+                          size='large'
+                        >delete</Button>
+                      }
+                        content={
+                          <Button
+                            color='red'
+                            onClick={() => this.removeChore(chore._id)}
+                          >confirm</Button>
+                        }
+                      />
                     </Button.Group>
                   </Segment>
                 </Segment>
