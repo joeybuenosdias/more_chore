@@ -5,7 +5,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/more_chore');
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/more_chore'
+
+mongoose.connect(mongoUri);
 mongoose.connection
   .once('open', () => console.log('Good to go!'))
   .on('err', () => {
