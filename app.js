@@ -17,6 +17,7 @@ mongoose.connection
 const app = express();
 
 const chores = require('./routes/chores');
+const users = require('./routes/users');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.use('/api/chores', chores);
+app.use('/api/users', users)
 
 app.get('*', (request, response) => {
    response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));

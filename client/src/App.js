@@ -20,7 +20,6 @@ class App extends React.Component{
           <Switch>
             <Route exact path='/' component={Landing} />
             <Route path='/chores' component={FetchChores} />
-            <Route component={NoMatch} />
           </Switch>
         </Container>
       </div>
