@@ -3,11 +3,17 @@ const router = express.Router();
 const User = require('../models/user');
 const passport = require('passport');
 
+//CUSTOM MIDDLEWARE
 const isAuthenticated = (req, res, next) => {
   if(req.user)
     next();
   else
     return res.json({})
+}
+
+const userAttrs = (user) => {
+  const { _id, username, role } = user;
+  return { _id, username, role };
 }
 
 //WHEN USER CLICKS SIGNUP BOTTON ON REGISTER PAGE. UNIQUE USERNAME AND PASSWORD REQUIRED
@@ -19,7 +25,7 @@ router.post('/signup', (req, res) => {
     user.save( (err, user) => {
       if(err)
         return res.status(500).json(err);
-      return res.json(user);
+      return res.json(userAttrs(user));
     });
   });
 });
@@ -35,7 +41,7 @@ router.post('/signin', (req, res) => {
         return res.json(500, passwordErr.message)
 
       req.logIn(user, (err) => {
-        return res.json(user)
+        return res.json(userAttrs(user))
       })
     });
   });
