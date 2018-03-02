@@ -33,7 +33,8 @@ router.post('/signup', (req, res) => {
 //LOGIN PAGE WHEN USER CLICKS THE SIGN IN BUTTON. A UN AND MATCHING DB PASSWORD REQUIRED BEFORE CLICK
 router.post('/signin', (req, res) => {
   let { email, password } = req.body;
-  User.findOne({ username: req.body.email }, (err, user) => {
+  console.log(req.headers)
+  User.findOne({ username: email }, (err, user) => {
     user.authenticate(req.body.password, (err, user, passwordErr) => {
       if(err)
         return res.json(500, 'User not found');

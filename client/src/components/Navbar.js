@@ -22,9 +22,9 @@ const unAuthenticatedLinks = [
 
 class Navbar extends React.Component{
 
-  buildNavigation = (navs) => {
+  buildNavigation = (navItems) => {
     let { location, history, dispatch } = this.props;
-    return navs.map( (nav, i) => {
+    return navItems.map( (nav, i) => {
       return (
         <Menu.Item
           key={i}
@@ -56,9 +56,9 @@ class Navbar extends React.Component{
     let navs;
 
     if(id){
-      return navs = [...links, ...authenticatedLinks];
+      navs = [...links, ...authenticatedLinks];
     } else {
-      return navs = [...links, ...unAuthenticatedLinks];
+      navs = [...links, ...unAuthenticatedLinks];
     }
 
     return(

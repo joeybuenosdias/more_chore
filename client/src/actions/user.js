@@ -20,6 +20,15 @@ export const authenticate = (email, password, title, history) => {
   }
 }
 
-const currentUser = (user = {}) => {
-  return { type: 'USER', user }
+export const tryFetchUser = (cb) => {
+  return (dispatch) => {
+    axios.get('/api/auth/user')
+      .then( user => dispatch(currentUser(user)))
+      .then(() => cb())
+  }
+}
+
+const currentUser = (user={}) => {
+  let info = user.data
+  return { type: 'USER', user: info }
 }

@@ -1,9 +1,9 @@
 const user = (state = {}, action) => {
   switch(action.type){
     case 'USER':
-      return action.user
+      return {...action.user}
     default:
-      return state
+      return state;
   }
 }
 
