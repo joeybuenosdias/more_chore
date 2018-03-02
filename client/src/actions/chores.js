@@ -31,7 +31,6 @@ export const updateChore = (chore) => {
 }
 
 export const deleteChore = (id) => {
-  console.log(id)
   return (dispatch) => {
     axios.delete(`/api/chores/${id}`)
       .then( () => dispatch({ type: 'DELETE_CHORE', id }))

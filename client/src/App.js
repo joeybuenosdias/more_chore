@@ -6,8 +6,8 @@ import { Container } from 'semantic-ui-react';
 //FILES
 import Navbar from './components/Navbar';
 import Landing from './components/Landing';
-import FetchChores from './components/chores/FetchChores';
-import NoMatch from './components/NoMatch';
+import About from './components/About';
+import Auth from './components/Auth';
 
 class App extends React.Component{
   render(){
@@ -19,7 +19,9 @@ class App extends React.Component{
           <Navbar />
           <Switch>
             <Route exact path='/' component={Landing} />
-            <Route path='/chores' component={FetchChores} />
+            <Route path='/about' component={About} />
+            <Route path='/register' render={ (props) => <Auth {...props} title={'Register'} /> } />
+            <Route path='/login' render={ (props) => <Auth {...props} title={'Login'} /> } />
           </Switch>
         </Container>
       </div>

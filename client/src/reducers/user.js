@@ -1,6 +1,6 @@
-const user = (state={}, action) => {
+const user = (state = {}, action) => {
   switch(action.type){
-    case 'SHOW_USER':
+    case 'USER':
       return action.user
     default:
       return state
