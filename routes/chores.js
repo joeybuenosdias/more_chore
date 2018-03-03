@@ -3,14 +3,16 @@ const router = express.Router();
 const Chore = require('../models/chore');
 
 router.get('/', (req, res) => {
-  Chore.find((err, chores) => {
+  Chore.find({ userId: req.user._id }, (err, chores) => {
     res.json(chores);
   });
 });
 
 router.post('/', (req, res) => {
   let { title, description } = req.body;
+  let userKey = req.user._id
   new Chore({
+    userId: userKey,
     title,
     description
   }).save((err, chore) => {
