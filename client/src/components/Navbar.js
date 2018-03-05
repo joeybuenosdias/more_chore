@@ -6,7 +6,6 @@ import { logout } from '../actions/user';
 
 const links = [
   { name: 'Landing', path: '/' },
-  { name: 'About', path: '/about' }
 ]
 
 const authenticatedLinks = [
@@ -67,7 +66,9 @@ class Navbar extends React.Component{
         size='huge'
         color='purple'
       >
+        <Menu.Menu>
         {this.buildNavigation(navs)}
+        </Menu.Menu>
       </Menu>
     )
   }
