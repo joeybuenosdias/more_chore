@@ -16,15 +16,17 @@ class Dashboard extends React.Component {
     return dashboardInfo.map( (dash) => {
       return (
         <Grid.Column>
-          <Card>
-            <Segment>
-              <Header textAlign='center' as='h2'>{dash.title}</Header>
+          <Card centered>
+            <Segment color='violet' inverted>
+              <Header textAlign='center' as='h4'>{dash.title}</Header>
             </Segment>
-            <Icon
-              name={dash.iconName}
-              size='huge'
-            />
-            <Card.Meta>{dash.header}</Card.Meta>
+            <Segment raised basic textAlign='center'>
+              <Icon
+                name={dash.iconName}
+                size='massive'
+                color='grey'
+              />
+            </Segment>
           </Card>
         </Grid.Column>
       )
@@ -36,13 +38,13 @@ class Dashboard extends React.Component {
       return (
         <Container>
           <Segment>
-            <Header textAlign='center'>Welcome {username}</Header>
-            <Grid>
+            <Header color='grey' as='h1' textAlign='center'>{username}</Header>
+            <Grid divided>
               <Grid.Row columns={3}>
                 {this.showDashboardOptions()}
               </Grid.Row>
-              <DashboardData />
             </Grid>
+            <DashboardData/>
           </Segment>
         </Container>
       )

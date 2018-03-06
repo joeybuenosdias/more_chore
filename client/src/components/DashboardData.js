@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getChores } from '../actions/chores';
-import { Button, Grid } from 'semantic-ui-react';
+import { Button, Grid, Segment, Label } from 'semantic-ui-react';
 
 class DashboardData extends React.Component {
 
@@ -20,28 +20,67 @@ class DashboardData extends React.Component {
 
   showCompletedChoreData = (choreList) => {
     let completedCount = choreList.filter( ch => ch.completed === true)
-    return <Button>{completedCount.length}</Button>
+    return (
+      <Segment
+        raised
+        textAlign='center'
+      >
+        <Button
+          positive
+          label={<Label color='green'>{completedCount.length}</Label>}
+          content='your completed chores'
+        />
+      </Segment>
+    )
   }
 
   showIncompleteChoreData = (choreList) => {
     let incompleteCount = choreList.filter( ch => ch.completed === false)
-    return <Button>{incompleteCount.length}</Button>
+    return (
+      <Segment
+        raised
+        textAlign='center'
+      >
+        <Button
+          negative
+          label={<Label color='red'>{incompleteCount.length}</Label>}
+          content='your incomplete chores'
+        />
+      </Segment>
+    )
+  }
+
+  showChoreTotalData = (choreList) => {
+    let totalChores = choreList.length;
+    return (
+      <Segment
+        raised
+        textAlign='center'
+      >
+        <Button
+          primary
+          label={<Label color='blue'>{totalChores}</Label>}
+          content='your total chores'
+        />
+      </Segment>
+    )
   }
 
   render (){
-
     return (
-      <Grid.Row columns={3} centered>
-        <Grid.Column>
-          <Button>Profile</Button>
-        </Grid.Column>
-        <Grid.Column>
-        {this.showCompletedChoreData(this.props.chores)}
-        </Grid.Column>
-        <Grid.Column>
-          {this.showIncompleteChoreData(this.props.chores)}
-        </Grid.Column>
-      </Grid.Row>
+      <Grid divided>
+        <Grid.Row columns={3}>
+          <Grid.Column>
+            {this.showChoreTotalData(this.props.chores)}
+          </Grid.Column>
+          <Grid.Column>
+            {this.showCompletedChoreData(this.props.chores)}
+          </Grid.Column>
+          <Grid.Column>
+            {this.showIncompleteChoreData(this.props.chores)}
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }

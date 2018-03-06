@@ -49,7 +49,7 @@ class ChoreForm extends React.Component {
         ></TextArea>
         <Button
           fluid
-          color='purple'
+          color='violet'
           onClick={this.handleSubmit}
         >
           SUBMIT!
