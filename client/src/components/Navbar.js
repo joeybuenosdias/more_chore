@@ -64,7 +64,7 @@ class Navbar extends React.Component{
       <Menu
         inverted
         size='huge'
-        color='purple'
+        color='violet'
       >
         <Menu.Menu>
         {this.buildNavigation(navs)}

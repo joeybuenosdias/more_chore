@@ -2,7 +2,10 @@ import React from 'react';
 import { Segment, Header } from 'semantic-ui-react';
 
 const WelcomeParagraph = () => (
-  <Segment textAlign='center' color='purple'>
+  <Segment
+    color='violet'
+    size='massive'
+  >
     <Header
       as='h3'
       color='grey'
