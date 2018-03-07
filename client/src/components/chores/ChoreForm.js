@@ -40,7 +40,6 @@ class ChoreForm extends React.Component {
           placeholder='Enter Title of Chore Here'
         />
         <TextArea
-          fluid
           name='description'
           value={this.state.description}
           onChange={this.handleChange}
