@@ -12,6 +12,7 @@ MoreChore is a javascript application that allows users to create a profile, vie
 
 From Root Directory
 
+
 Delete my repo and add your own
 
 *Only if you wish to push to your own repo, otherwise just move on to installing dependencies*
@@ -26,36 +27,56 @@ Delete my repo and add your own
 
 `git push -u origin master`
 
+
 Install server dependencies (Root Directory)
+
 `yarn`
 
 Install client dependencies (Client Directory)
+
 `yarn`
+
 
 After server and client dependencies are installed
 
+
 To start the server:
+
 `nodemon`
 
 To start client server:
+
 `yarn start`
+
 
 ### Tech Stack
 
 Server Side
+
 -NodeJS
+
 -Express
+
 -Passport
+
 -MongoDB
+
 -Mongoose
+
 -Heroku
 
 Client Side
+
 -React
+
 -Redux
+
 -Redux-Thunk
+
 -React Router v4
+
 -Semantic-UI-React
+
 -axios
 
 
