@@ -53,7 +53,7 @@ To start client server:
 
 ### Tech Stack
 
-#####Server Side
+##### Server Side
 
 -NodeJS
 
@@ -67,7 +67,7 @@ To start client server:
 
 -Heroku
 
-#####Client Side
+##### Client Side
 
 -React
 
