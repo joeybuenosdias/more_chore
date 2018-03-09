@@ -8,6 +8,7 @@ MoreChore is a javascript application that allows users to create a profile, vie
 
 ### Installation
 `git clone git@github.com:mojo3131/more_chore.git`
+
 `cd more_chore`
 
 From Root Directory
