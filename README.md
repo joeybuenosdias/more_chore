@@ -82,5 +82,10 @@ To start client server:
 
 -axios
 
+# Project Pipeline for MoreChore
 
+-Add flash messages for failed user authentication
 
+-Implement Redux Form for the chore form
+
+-Add filters to the user dashboard
