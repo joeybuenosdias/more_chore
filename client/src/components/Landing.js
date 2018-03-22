@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Container, Segment, Grid } from 'semantic-ui-react';
 import WelcomeParagraph from './WelcomeParagraph';
 import LandingHeader from './LandingHeader';

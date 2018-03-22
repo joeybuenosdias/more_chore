@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Icon, Grid, Header, Segment, Card, Loader, Dimmer } from 'semantic-ui-react';
+import { Container, Icon, Grid, Header, Segment, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { getChores } from '../actions/chores';
 import DashboardData from './DashboardData';
 
 const dashboardInfo = [

@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { List, Header, Segment, Button, Icon, Popup } from 'semantic-ui-react';
+import { List, Header, Segment, Button, Popup } from 'semantic-ui-react';
 
 //FILES
 import { deleteChore, updateChore } from '../../actions/chores';
